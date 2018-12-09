@@ -3,15 +3,15 @@ class Config(object):
     DEVICE = 'cuda'
 
     # pathes
-    #VOC_DATASET_DIR = '/home/xxx/datasets/VOC2012'
+    VOC_DATASET_DIR = '/home/public/Dataset/yuncong/yuncong_data_new'
     WF_DATASET_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/face/wider_face'
-    LOG_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs'
+    LOG_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs_voc'
 
     # datasets
-    DATASETS = 'WF' # currently support 'WF' and 'VOC'
+    DATASETS = 'VOC' # currently support 'WF' and 'VOC'
 
     # VOC datasets utilities
-    #VOC_CLASS = 'person'
+    VOC_CLASS = 'humnan_head'
 
     # training && log controls
     MODEL_SAVE_STRIDE = 1

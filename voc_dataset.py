@@ -20,9 +20,11 @@ def my_collate_fn(batch):
 
 
 def create_voc_datasets(voc_dataset_dir, split_ratio=0.2):
-    annotations_dir = os.path.join(voc_dataset_dir, 'Annotations')
-    data_dir = os.path.join(voc_dataset_dir, 'JPEGImages')
-    imgs = os.listdir(data_dir)
+    annotations_dir = os.path.join(voc_dataset_dir, 'Annotations/All_Annotations/')
+    imgnames_dir=os.path.join(voc_dataset_dir, 'ImageSets/All_train_imgnames.txt')
+    imgnames = open(imgnames_dir, 'r')
+    imgs = imgnames.readlines()
+    imgnames.close()
 
     coordinates = []
 
@@ -78,7 +80,8 @@ class VOCDataset(Dataset):
 
     def __init__(self, images_dir, annotation, image_size=640, transform=None):
         super().__init__()
-        self.images_dir = os.path.join(images_dir, 'JPEGImages')
+
+        self.images_dir = os.path.join(images_dir, 'Data/train_and_validate/All/')
         self.annotation = annotation
         self.transform = transform
         self.image_size = image_size
