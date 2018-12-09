@@ -20,18 +20,14 @@ def my_collate_fn(batch):
 
 
 def create_voc_datasets(voc_dataset_dir, split_ratio=0.2):
-    annotations_dir = os.path.join(voc_dataset_dir, 'Annotations/Mall_Annotations')
-    #data_dir = os.path.join(voc_dataset_dir, 'JPEGImages2')
-    #imgs = os.listdir(data_dir)
-    imgnames_dir=os.path.join(voc_dataset_dir, 'ImageSets/Mall_train_imgnames.txt')
-    imgnames = open(imgnames_dir, 'r')
-    imgs = imgnames.readlines()
-    imgnames.close()
+    annotations_dir = os.path.join(voc_dataset_dir, 'Annotations')
+    data_dir = os.path.join(voc_dataset_dir, 'JPEGImages')
+    imgs = os.listdir(data_dir)
 
     coordinates = []
 
     for img in imgs:
-        annotation = img.strip() + '.xml'
+        annotation = img.split('.')[0] + '.xml'
         annotation_path = os.path.join(annotations_dir, annotation)
 
 
@@ -82,7 +78,7 @@ class VOCDataset(Dataset):
 
     def __init__(self, images_dir, annotation, image_size=640, transform=None):
         super().__init__()
-        self.images_dir = os.path.join(images_dir, 'train_data/Mall')
+        self.images_dir = os.path.join(images_dir, 'JPEGImages')
         self.annotation = annotation
         self.transform = transform
         self.image_size = image_size
@@ -102,10 +98,10 @@ class VOCDataset(Dataset):
         height, width = image.shape[:2]
         width_scale, height_scale = 640.0 / width, 640.0 / height
         coordinates = np.array(list(map(lambda x: [
-            x[0] * width_scale,
-            x[1] * height_scale,
-            x[2] * width_scale,
-            x[3] * height_scale
+            x[0] * height_scale,
+            x[1] * width_scale,
+            x[2] * height_scale,
+            x[3] * width_scale
         ], coordinates)))
         image = cv2.resize(image, (self.image_size, self.image_size))
 

@@ -8,6 +8,7 @@ from model import Net
 from trainer import Trainer
 from voc_dataset import create_voc_datasets
 
+
 def main():
     if Config.DATASETS == 'VOC':
         train_dataset, val_dataset = create_voc_datasets(Config.VOC_DATASET_DIR)
@@ -23,6 +24,7 @@ def main():
         shuffle=True,
         collate_fn=my_collate_fn
     )
+
     val_dataloader = torch.utils.data.DataLoader(
         val_dataset,
         batch_size=1,

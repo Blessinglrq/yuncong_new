@@ -3,29 +3,28 @@ class Config(object):
     DEVICE = 'cuda'
 
     # pathes
-    VOC_DATASET_DIR = '/home/public/Dataset/yuncong/yuncong_data_new'
-    WF_DATASET_DIR = '/home/xxx/datasets/wider_face'
-    #LOG_DIR = '/home/zsk/PycharmProjects/untitled/sfd.pytorch-master/logs/'
-    LOG_DIR = '/home/zsk/PycharmProjects/untitled/yuncong/logs/'
+    #VOC_DATASET_DIR = '/home/xxx/datasets/VOC2012'
+    WF_DATASET_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/face/wider_face'
+    LOG_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs'
+
     # datasets
-    # DATASETS = 'WF' # currently support 'WF' and 'VOC'
-    DATASETS = 'VOC'  # currently support 'WF' and 'VOC'
+    DATASETS = 'WF' # currently support 'WF' and 'VOC'
 
     # VOC datasets utilities
-    VOC_CLASS = 'humnan_head'
+    #VOC_CLASS = 'person'
 
     # training && log controls
     MODEL_SAVE_STRIDE = 1
-    BATCH_SIZE = 4
-    RESUME_FROM = False  # epoch number, model file name or path are all OK
+    BATCH_SIZE = 2
+    RESUME_FROM = 353  # epoch number, model file name or path are all OK
     LEARNING_RATE = 0.0001
     WEIGHT_DECAY = 0.0005
     MOMENTUM = 0.9
     EPOCHS = 500
 
-    POSITIVE_ANCHOR_THRESHOLD = 0.3
+    POSITIVE_ANCHOR_THRESHOLD = 0.3      # paper 0.35???
     NEGATIVE_ANCHOR_THRESHOLD = 0.1
-    LEAST_POSITIVE_ANCHOR_NUM = 100
+    LEAST_POSITIVE_ANCHOR_NUM = 100      #  N ???
     LOSS_LOG_STRIDE = 1  # log loss every N iter
     DATALOADER_WORKER_NUM = 1
     VGG16_PRETRAINED_WEIGHTS = "https://download.pytorch.org/models/vgg16-397923af.pth"
