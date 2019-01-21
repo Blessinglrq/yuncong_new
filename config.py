@@ -5,22 +5,23 @@ class Config(object):
     # pathes
     VOC_DATASET_DIR = '/home/public/Dataset/yuncong/yuncong_data_new'
     WF_DATASET_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/face/wider_face'
-    LOG_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs_voc'
+    LOG_DIR = '/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs_voc/'
+    Test_yuncong_DIR = '/home/public/Dataset/yuncong'
 
     # datasets
     DATASETS = 'VOC' # currently support 'WF' and 'VOC'
 
     # VOC datasets utilities
-    VOC_CLASS = 'humnan_head'
+    VOC_CLASS = 'human_head'
 
     # training && log controls
     MODEL_SAVE_STRIDE = 1
     BATCH_SIZE = 2
-    RESUME_FROM = 353  # epoch number, model file name or path are all OK
-    LEARNING_RATE = 0.0001
+    RESUME_FROM = '659' # epoch number, model file name or path are all OK
+    LEARNING_RATE = 0.00001   # maybe lower!!!!
     WEIGHT_DECAY = 0.0005
     MOMENTUM = 0.9
-    EPOCHS = 500
+    EPOCHS = 670
 
     POSITIVE_ANCHOR_THRESHOLD = 0.3      # paper 0.35???
     NEGATIVE_ANCHOR_THRESHOLD = 0.1
@@ -54,5 +55,5 @@ class Config(object):
     PREDICTION_THRESHOLD = 0.8
 
     # tensorboard
-    TENSOR_BOARD_ENABLED = False  # if enabled, the tensorflow log dir is in
+    TENSOR_BOARD_ENABLED = True # if enabled, the tensorflow log dir is in
                                  # $LOG_DIR/tensorboad

@@ -16,7 +16,7 @@ from logger import Logger
 from evaluate import evaluate
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 device = torch.device(Config.DEVICE)
 
@@ -84,7 +84,7 @@ class Trainer(object):
             checkpoint = torch.load(state_file)
             self.start_epoch = self.current_epoch = checkpoint['epoch'] + 1
             self.model.load_state_dict(checkpoint['state_dict'], strict=True)
-            self.optimizer.load_state_dict(checkpoint['optimizer'])
+            # self.optimizer.load_state_dict(checkpoint['optimizer'])
             print("loaded checkpoint {} (epoch {})".format(
                 state_file, self.current_epoch))
 

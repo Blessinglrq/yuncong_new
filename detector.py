@@ -158,14 +158,14 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='predictor')
-    parser.add_argument('--image', type=str,
+    parser.add_argument('--image', default='/home/public/Dataset/yuncong/yuncong_data_new/Data/train_and_validate/All/Part_B_IMG_330.jpg', type=str,
                         help='image to be predicted')
-    parser.add_argument('--model', type=str,
+    parser.add_argument('--model', default='/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs_voc/models/epoch_662.pth.tar',type=str,
                         help='model to use, could be epoch number, model file '
                              'name or model file absolute path')
-    parser.add_argument('--keep', type=int, default=150,
-                        help='how many predictions to keep, default: 150')
-    parser.add_argument('--save_to', type=str,
+    # parser.add_argument('--keep', type=int, default=150,
+    #                     help='how many predictions to keep, default: 150')
+    parser.add_argument('--save_to', default='/home/lrq/tiny object detection 相关论文代码/SFD/dataset/logs_voc', type=str,
                         help='save the image with bboxes to a file')
 
     args = parser.parse_args()

@@ -1,6 +1,6 @@
 import numpy as np
 from utils import change_coordinate_inv
-
+import numpy as np
 
 def anchors_of_feature_map(stride, size, feature_map_shape):
     anchors = []

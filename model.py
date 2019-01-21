@@ -8,7 +8,7 @@ from config import Config
 
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 
 device = torch.device(Config.DEVICE)
 
